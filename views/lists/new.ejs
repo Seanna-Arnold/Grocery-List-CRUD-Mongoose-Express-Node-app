@@ -1,0 +1,23 @@
+<%- include('./partials/header') %>
+
+<h2>Enter a New Item</h2>
+<form action="/lists" method="POST">
+    <label>Item:
+        <input type="text" name="itemName">
+    </label>
+    <label>Quantity:
+        <input type="number" name="quantity">
+    </label><br>
+    <label>Category:
+        <select name="category">
+            <option value="Home">Home and Living</option>
+            <option value="Food">Food</option>
+            <option value="Living">Clothing</option>
+        </select>
+    </label><br><br>
+    <button>Add</button>
+    
+</form>
+<p><%= errorMsg %></p>
+
+<%- include('./partials/footer') %>

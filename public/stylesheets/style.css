@@ -1,0 +1,38 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
+}
+
+.navLinks {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+  color: gray;
+  margin: 30px;
+}
+
+.login {
+  size: 10px;
+  text-decoration: none;
+  position: absolute; 
+  top: 50px; 
+  right: 60px;
+}
+
+.nav {
+  bottom: 300px;
+}

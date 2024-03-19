@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<h2>Grocery List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% lists.forEach(function(f) { %>
+      <tr>
+        <td><%= f.itemName %></td>
+        <td><%= f.quantity %></td>
+        <td><%= f.category %></td>
+        <td><a href="/lists/<%= f._id %>">DETAILS</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+
+
+<%- include('../partials/footer') %>
+
