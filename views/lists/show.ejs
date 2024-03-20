@@ -9,6 +9,36 @@
   <div><%= list.location %></div>
   <div>Done: </div>
   <div><%= list.completed ? 'Yes' : 'Nope' %></div>
+</section>
+
+<br>
+
+<section>
+  <h2>Update List</h2>
+  <form action="/lists/<%= list._id %>/?_method=PUT" method="POST">
+    <label>List:
+      <input type="text" name="listName" value="<%= list.listName %>">
+    </label><br>
+    <label>Due By:
+      <input type="date" name="dueDate" value="<%= list.dueDate ? list.dueDate.toISOString().split('T')[0] : '' %>">
+    </label><br>
+    <label>Shop At:</label>
+    <select name="location">
+      <option value="Harris Teeter" <%= list.location === 'Harris Teeter' ? 'selected' : '' %>>Harris Teeter</option>
+      <option value="Walmart" <%= list.location === 'Walmart' ? 'selected' : '' %>>Walmart</option>
+      <option value="Target" <%= list.location === 'Target' ? 'selected' : '' %>>Target</option>
+      <option value="Trader Joe's" <%= list.location === 'Trader Joe\'s' ? 'selected' : '' %>>Trader Joe's</option>
+      <option value="Aldi" <%= list.location === 'Aldi' ? 'selected' : '' %>>Aldi</option>
+      <option value="Lidl" <%= list.location === 'Lidl' ? 'selected' : '' %>>Lidl</option>
+      <option value="World Market" <%= list.location === 'World Market' ? 'selected' : '' %>>World Market</option>
+      <option value="Patel Brothers" <%= list.location === 'Patel Brothers' ? 'selected' : '' %>>Patel Brothers</option>
+      <option value="other" <%= list.location === 'other' ? 'selected' : '' %>>Other</option>
+    </select><br>
+    <label>Completed:
+      <input type="checkbox" name="completed">
+    </label><br>
+    <button type="submit">UPDATE List</button>
+  </form>
 
 </section>
 

@@ -20,6 +20,7 @@
         <td><%= l.completed ? 'Yes' : 'Nope' %></td>
         <td><a href="/lists/<%= l._id %>">ITEMS</a></td>
         <td><form action="/lists/<%= l._id %>?_method=DELETE" method="POST"><button type="submit">✖️</button></form></td>
+
       </tr>
     <!-- Close the forEach using EJS here -->
     <% }) %>

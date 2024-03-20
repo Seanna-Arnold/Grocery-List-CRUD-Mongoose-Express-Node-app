@@ -3,10 +3,13 @@ body {
 }
 
 .display {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-color: #FDFFFC;
+  color: #2B1F12;
+  font-family: Futura;
+  font-size: 16px;
   
 }
 
@@ -50,5 +53,14 @@ a {
 
 .listTable {
   border: 1px solid;
+  
+}
+
+#show-page{
+  width: 60vw;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 2em;
   
 }
