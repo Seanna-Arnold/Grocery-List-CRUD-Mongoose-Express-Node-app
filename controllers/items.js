@@ -22,18 +22,13 @@ async function create(req, res) {
   }
 
   async function deleteItem(req, res) {
-    console.log(req.params.id)
     try {
-        const item = await Item.findById(req.params.id);
-        // const item = await Item.find();
-        console.log(item)
-        if (!item) return res.redirect("/lists"); // Redirect to the item of items if the item is not found
-    
-        await item.deleteOne(); // Delete the item
-    
-        res.redirect("/lists"); // Redirect to the list of lists or any appropriate page
+        const list = await List.findOne({'items._id': req.params.id});
+        list.items.remove(req.params.id)
+        await list.save()
+        res.redirect(`/lists/${list._id}`); // Redirect to the list of lists or any appropriate page
     } catch (err) {
         console.error(err);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send("Internal Server Error:");
     }
 }

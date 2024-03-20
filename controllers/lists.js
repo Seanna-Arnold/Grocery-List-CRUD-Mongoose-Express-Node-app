@@ -5,7 +5,8 @@ module.exports = {
     create,
     index,
     show,
-    deleteList
+    deleteList,
+    update
 }
 
 async function show(req, res) {
@@ -61,4 +62,21 @@ async function create(req, res) {
         console.error(err);
         res.status(500).send("Internal Server Error");
     }
+}
+
+async function update(req, res) {
+  try {
+    const list = await List.findByIdAndUpdate(
+      {_id: req.params.id},
+      // update object with updated properties
+      req.body,
+      // options object {new: true} returns updated doc
+      {new: true}
+    );
+    await list.save()
+    return res.redirect(`/lists/${list._id}`);
+  } catch (e) {
+    console.log(e.message);
+    return res.redirect('/lists');
+  }
 }
