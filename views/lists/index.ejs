@@ -1,13 +1,15 @@
 <%- include('../partials/header') %>
 
-<h2>Shopping List</h2>
+<h2>Shopping List 🗒️</h2>
 <table  class="listTable">
   <thead>
     <tr id="tableHead">
-      <th>List Name</th>
+      <th>List Names</th>
       <th>Complete By</th>
       <th>Shop At</th>
       <th>Completed</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -15,14 +17,14 @@
     <% lists.forEach(function(l) { %>
       <tr>
         <td><%= l.listName %></td>
-        <td><%= l.dueDate %></td>
+        <td><%= new Date(l.dueDate).toLocaleDateString('en-US') %></td>
         <td><%= l.location %></td>
         <td><%= l.completed ? 'Yes' : 'Nope' %></td>
-        <td><a href="/lists/<%= l._id %>">ITEMS</a></td>
-        <td><form action="/lists/<%= l._id %>?_method=DELETE" method="POST"><button type="submit">✖️</button></form></td>
-
+        <% if (user) { %>
+        <td><a href="/lists/<%= l._id %>">view list</a></td>
+        <td><form action="/lists/<%= l._id %>?_method=DELETE" method="POST"><button type="submit">X</button></form></td>
+        <% } %>
       </tr>
-    <!-- Close the forEach using EJS here -->
     <% }) %>
   </tbody>
 </table>

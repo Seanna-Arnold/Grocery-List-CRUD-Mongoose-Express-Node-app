@@ -22,7 +22,8 @@ const itemSchema = new mongoose.Schema({
     }, 
     category: {
         type: String,
-        enum: ['Home & Living', 'Food', 'Clothing', 'other'],
+        enum: ['Home & Living 🏠', 'Food 🍔', 'Clothing 🧦', 'other'],
+        default: 'Food',
         required: true
     }
 });
