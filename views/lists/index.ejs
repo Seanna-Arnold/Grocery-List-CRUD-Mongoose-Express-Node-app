@@ -1,26 +1,29 @@
 <%- include('../partials/header') %>
 
-<h2>Grocery List</h2>
-<table>
+<h2>Shopping List</h2>
+<table  class="listTable">
   <thead>
-    <tr>
-      <th>Item</th>
-      <th>Quantity</th>
+    <tr id="tableHead">
+      <th>List Name</th>
+      <th>Complete By</th>
+      <th>Shop At</th>
+      <th>Completed</th>
     </tr>
   </thead>
   <tbody>
-    <% lists.forEach(function(f) { %>
+
+    <% lists.forEach(function(l) { %>
       <tr>
-        <td><%= f.itemName %></td>
-        <td><%= f.quantity %></td>
-        <td><%= f.category %></td>
-        <td><a href="/lists/<%= f._id %>">DETAILS</a></td>
+        <td><%= l.listName %></td>
+        <td><%= l.dueDate %></td>
+        <td><%= l.location %></td>
+        <td><%= l.completed ? 'Yes' : 'Nope' %></td>
+        <td><a href="/lists/<%= l._id %>">ITEMS</a></td>
+        <td><form action="/lists/<%= l._id %>?_method=DELETE" method="POST"><button type="submit">✖️</button></form></td>
       </tr>
+    <!-- Close the forEach using EJS here -->
     <% }) %>
   </tbody>
 </table>
 
-
-
 <%- include('../partials/footer') %>
-

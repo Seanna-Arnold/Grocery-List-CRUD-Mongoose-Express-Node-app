@@ -1,23 +1,32 @@
-<%- include('./partials/header') %>
-
+<%- include('../partials/header')%>
 <h2>Enter a New Item</h2>
 <form action="/lists" method="POST">
-    <label>Item:
-        <input type="text" name="itemName">
-    </label>
-    <label>Quantity:
-        <input type="number" name="quantity">
-    </label><br>
-    <label>Category:
-        <select name="category">
-            <option value="Home">Home and Living</option>
-            <option value="Food">Food</option>
-            <option value="Living">Clothing</option>
-        </select>
-    </label><br><br>
-    <button>Add</button>
-    
+  <label>List:
+    <input type="text" name="listName">
+  </label><br>
+  <label>Due By:
+    <input type="date" name="dueDate">
+  </label><br>
+  <label>Shop At:
+    <select name="location">
+      <option value="Harris Teeter">Harris Teeter</option>
+      <option value="Walmart">Walmart</option>
+      <option value="Target">Target</option>
+      <option value="Trader Joe's">Trader Joe's</option>
+      <option value="Aldi">Aldi</option>
+      <option value="Lidl">Lidl</option>
+      <option value="World Market">World Market</option>
+      <option value="Patel Brothers">Patel Brothers</option>
+      <option value="other">other</option>
+    </select>
+  </label><br>
+  <label>Completed:
+    <input type="checkbox" name="completed">
+  </label><br>
+  <button type="submit">Add List</button>
 </form>
-<p><%= errorMsg %></p>
+<p>
+    <%= errorMsg %>
+</p>
 
-<%- include('./partials/footer') %>
+<%- include('../partials/footer')%>

@@ -1,1 +1,62 @@
+<%- include('../partials/header') %>
 
+<section id="show-page">
+  <div>List: </div>
+  <div><%= list.listName %></div>
+  <div>Due By: </div>
+  <div><%= list.dueDate %></div>
+  <div>Shop At: </div>
+  <div><%= list.location %></div>
+  <div>Done: </div>
+  <div><%= list.completed ? 'Yes' : 'Nope' %></div>
+
+</section>
+
+<br>
+
+<h2>Items</h2>
+<form id="add-item-form" method="POST" action="/lists/<%= list._id %>/items">
+  <label>List Items:</label>
+  <input type='text' name="itemName"></input>
+  <label>Quantity:</label>
+  <input type="Number" name="quantity">
+  <label>Category:</label>
+  <select name="category">
+    <option value="Home & Living">Home & Living</option>
+    <option value="Food">Food</option>
+    <option value="Clothing">Clothing</option>
+    <option value="other">other</option>
+  </select>
+  <label>Completed:
+    <input type="checkbox" name="completed">
+  </label>
+  <input type="submit" value="Add Item">
+</form>
+
+<% if (list.items.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Category</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% list.items.forEach(function(i) { %>
+          <tr>
+            <td><%= i.itemName %></td>
+            <td><%= i.quantity %></td>
+            <td><%= i.category %></td>
+            <td><%= i.completed ? 'Yes' : 'Nope' %></td>
+            <td><form action="/items/<%= i._id %>?_method=DELETE" method="POST"><button type="submit">X</button></form></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Items Yet</h5>
+  <% } %>
+  
+<%- include('../partials/footer') %>

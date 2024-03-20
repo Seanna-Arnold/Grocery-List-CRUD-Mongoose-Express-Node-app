@@ -2,23 +2,10 @@ const mongoose = require('mongoose');
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 	
-const shoppingListSchema = new mongoose.Schema({
-    listName: {
-        type: String, 
-        required: true 
-    },
-
-    category: {
-        type: String,
-        required: true
-    }
-});
-
-// Define ListItem schema
-const listItemSchema = new mongoose.Schema({
+const itemSchema = new mongoose.Schema({
     listID: {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'ShoppingList', 
+        ref: 'shoppingList', 
         required: true 
     },
     itemName: { 
@@ -32,14 +19,46 @@ const listItemSchema = new mongoose.Schema({
     completed: { 
         type: Boolean, 
         default: false 
+    }, 
+    category: {
+        type: String,
+        enum: ['Home & Living', 'Food', 'Clothing', 'other'],
+        required: true
     }
 });
 
-const ShoppingList = mongoose.model('ShoppingList', shoppingListSchema);
+const today = new Date();
 
+// Calculate the date for the day before today
+const dayBeforeToday = new Date(today);
+dayBeforeToday.setDate(today.getDate() - 1);
 
-
-module.exports = {
-    ShoppingList,
+const shoppingListSchema = new mongoose.Schema({
+    listName: {
+        type: String, 
+        required: true 
+    }, 
+    dueDate: {
+    type: Date,
+    default: today,
+    min: dayBeforeToday
+    },
+    location: {
+        type: String,
+        enum: ['Harris Teeter', 'Walmart', 'Target', 'Trader Joe\'s', 'Aldi', 'Lidl', 'World Market', 'Patel Brothers', 'other'],
+        default: 'Lidl'
+    },
+    completed: {
+        type: Boolean,
+        default: false
+    },
     
-};
+    items: [itemSchema]
+    }, );
+
+
+// module.exports = mongoose.model('ShoppingList', shoppingListSchema)
+module.exports = {
+    List : mongoose.model('shoppingList', shoppingListSchema),
+    Item : mongoose.model('item', itemSchema)
+    }

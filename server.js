@@ -9,7 +9,7 @@ var session = require('express-session')
 var indexRouter = require('./routes/index');
 
 var listsRouter = require('./routes/lists');
-var boardsRouter = require('./routes/boards');
+
 var itemsRouter = require('./routes/items');
 
 require('dotenv').config()
@@ -17,12 +17,13 @@ require('./config/database')
 
 require('./config/passport');
 
+
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
+app.use(methodOverride('_method'))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -41,11 +42,12 @@ app.use(passport.session());app.use(function (req, res, next) {
   next();
 });
 
+
+
 app.use('/', indexRouter);
 
 app.use('/lists', listsRouter);
-app.use('/boards', boardsRouter);
-app.use('/items', itemsRouter);
+app.use('/', itemsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

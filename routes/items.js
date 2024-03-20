@@ -4,6 +4,8 @@ const router = express.Router();
 var addItemCtrl = require('../controllers/items')
 
 // You Do - Define the Route below
-router.get('/lists/index', addItemCtrl.new)
+router.post('/lists/:id/items', addItemCtrl.create)
+
+router.delete('/items/:id', addItemCtrl.deleteItem)
 
 module.exports = router;
