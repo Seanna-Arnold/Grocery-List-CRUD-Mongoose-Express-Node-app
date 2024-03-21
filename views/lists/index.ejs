@@ -4,12 +4,14 @@
 <table  class="listTable">
   <thead>
     <tr id="tableHead">
+      <% if (user) { %>
       <th></th>
-      <th></th>
+      <% } %>
       <th>List Names</th>
       <th>Complete By</th>
       <th>Shop At</th>
       <% if (user) { %>
+      <th></th>
       <% } %>
     </tr>
   </thead>
@@ -17,12 +19,14 @@
 
     <% lists.forEach(function(l) { %>
       <tr>
+        <% if (user) { %>
         <td><a href="/lists/<%= l._id %>"> view list 👀</a></td>
-        <td><form action="/lists/<%= l._id %>?_method=DELETE" method="POST" id="remove"><button type="submit">X</button></form></td>
+        <% } %>
         <td><%= l.listName %></td>
         <td><%= new Date(l.dueDate).toLocaleDateString('en-US') %></td>
         <td><%= l.location %></td>
         <% if (user) { %>
+        <td><form action="/lists/<%= l._id %>?_method=DELETE" method="POST" id="remove"><button type="submit">X</button></form></td>
         <% } %>
       </tr>
     <% }) %>

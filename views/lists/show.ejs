@@ -33,6 +33,24 @@
 
 <div class="container">
 <section class="form-containers">
+  <form id="add-item-form" method="POST" action="/lists/<%= list._id %>/items" id="form2" class="form">
+    <h3>Add Items</h3>
+    <label>List Items:</label>
+    <input type='text' name="itemName">
+    <label>Quantity:</label>
+    <input type="number" name="quantity">
+    <label>Category:</label>
+    <select name="category">
+      <option value="Food 🍔">Food 🍔</option>
+      <option value="Home & Living 🏠">Home & Living 🏠</option>
+      <option value="Clothing 🧦">Clothing 🧦</option>
+      <option value="other">other</option>
+    </select>
+    <input type="submit" value="Add Item">
+  </form>
+
+  <br>
+  
   <form action="/lists/<%= list._id %>/?_method=PUT" method="POST" id="form1" class="form">
     <h3>Update List Info</h3>
     <label>List:
@@ -56,23 +74,9 @@
     <button type="submit">Update List Info</button>
   </form>
 
-<br>
 
-<form id="add-item-form" method="POST" action="/lists/<%= list._id %>/items" id="form2" class="form">
-  <h3>Add Items</h3>
-  <label>List Items:</label>
-  <input type='text' name="itemName">
-  <label>Quantity:</label>
-  <input type="number" name="quantity">
-  <label>Category:</label>
-  <select name="category">
-    <option value="Food 🍔">Food 🍔</option>
-    <option value="Home & Living 🏠">Home & Living 🏠</option>
-    <option value="Clothing 🧦">Clothing 🧦</option>
-    <option value="other">other</option>
-  </select>
-  <input type="submit" value="Add Item">
-</form>
+
+
 </section>
 </div>
 <%- include('../partials/footer') %>

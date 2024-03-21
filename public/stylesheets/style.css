@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: #F3D9A5;
+  color: #C58D1B;
 }
 
 #login img {
@@ -77,7 +77,7 @@ form {
 
 label {
   display: block;
-  margin-bottom: 10px;
+  
 }
 
 input[type="text"],
@@ -154,7 +154,7 @@ h2 {
   text-align: center;
 }
 
-p {
+p, h5 {
   text-align: center;
 }
 
