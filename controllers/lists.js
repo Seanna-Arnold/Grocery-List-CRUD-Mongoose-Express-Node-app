@@ -32,9 +32,6 @@ function newList(req, res) {
 }
 
 async function create(req, res) {
-  // convert nowShowing's checkbox of nothing or "on" to boolean
-  // req.body.completed = !!req.body.completed;
-  // if (req.body.completed) req.body.completed = req.body.completed.split(/\s*,\s*/);
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
   }
@@ -54,11 +51,11 @@ async function deleteList(req, res) {
   try {
     const list = await List.findById(req.params.id);
     req.body.listID = req.params.id
-    if (!list) return res.redirect("/lists"); // Redirect to the list of lists if the list is not found
+    if (!list) return res.redirect("/lists"); // Redirect to the list if the list is not found
 
     await list.deleteOne(); // Delete the list
 
-    res.redirect("/lists"); // Redirect to the list of lists or any appropriate page
+    res.redirect("/lists"); // Redirect to the list or any appropriate page
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");
