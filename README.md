@@ -7,10 +7,6 @@ I developed a traditional memory game, integrating an array of fun animal emojis
 
 # Screenshots
 
-<img src="screenshots/start.png">
-<img src="screenshots/timer.png">
-<img src="screenshots/won.png">
-<img src="screenshots/lost.png">
 
 # Technologies Used
 
