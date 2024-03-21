@@ -1,9 +1,10 @@
-# Shopping-List-CRUD-App
+# Cart Companion - shopping-list-CRUD-app
 
 ### Try the Grocery App:
 
 
-I developed a traditional memory game, integrating an array of fun animal emojis. Employing the Fisher-Yates algorithm, I meticulously shuffled these elements before dynamically appending them to individual divs, emulating distinct cards within the document structure. This implementation introduces a time-sensitive challenge, wherein players must complete the task before the expiration of the timer to avoid defeat.
+In my project, I'm diving into the world of web development by crafting a CRUD (Create, Read, Update, Delete) application using Mongoose, Express, and Node.js, dedicated to simplifying shopping list management. With Mongoose, I'm seamlessly integrating MongoDB into my application, ensuring efficient data handling. Through this trio combination, I'm building a user-friendly interface where users can effortlessly add, view, edit, and remove items from their shopping lists.
+
 
 # Screenshots
 
