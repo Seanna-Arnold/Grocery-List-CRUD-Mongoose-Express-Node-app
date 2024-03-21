@@ -35,11 +35,9 @@ In my project, I'm diving into the world of web development by crafting a CRUD (
 ### View Project Planning:
 https://trello.com/b/3OL8rKb5/men-stack
 
-### Try Shopping List
-
-
 # Next Steps
 
 - Integrate API for recipe ingredients to add to list
 - Automatically sort by category
 - sort lists by date due
+- continue responsive design
