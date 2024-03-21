@@ -45,7 +45,6 @@ a {
 table {
   width: 80%;
   border-collapse: collapse;
-  font-family: Arial, sans-serif;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
@@ -97,16 +96,26 @@ select {
 
 button[type="submit"] {
   background-color: #F3D9A5;
-  color: #fff;
+  color: #320B0F;
   padding: 10px 20px;
-  border: none;
+  border: 1px solid #320B0F;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  transition: 0.5s;
 }
 
 button[type="submit"]:hover {
-  background-color: #F3D9A5;
+  background-color: #320B0F;
+  color: #F3D9A5;
+}
+
+.remove-button {
+  position: relative;
+}
+
+#remove {
+  width: 60px;
 }
 
 .container{
@@ -125,22 +134,19 @@ button[type="submit"]:hover {
 
 input[type="submit"] {
   background-color: #F3D9A5;
-  color: #fff;
+  color: #320B0F;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  border: 1px solid #320B0F;
+  transition: 0.5s;
 }
 
-#remove {
-  margin-left: 30px;
-  margin-right: -315px;
-}
-
-#remove-list {
-  margin-left: 30px;
-  margin-right: -297px;
+input[type="submit"]:hover {
+  background-color: #320B0F;
+  color: #F3D9A5;
 }
 
 h2 {
@@ -150,4 +156,53 @@ h2 {
 
 p {
   text-align: center;
+}
+
+/* chatgpt help for checkmark styling */
+.check {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px; 
+  height: 20px; 
+  background-color: transparent;
+  border: 1px solid #320B0F; 
+  border-radius: 5px; 
+  outline: none; 
+  cursor: pointer; 
+}
+
+
+.check:checked {
+  background-color: #F3D9A5;
+}
+
+/* Customize checkmark appearance */
+.check::after {
+  content: "\2713"; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #320B0F; 
+  font-size: 14px; 
+  display: none; 
+}
+
+.check:checked::after {
+  display: block;
+}
+
+
+@media screen and (max-width: 480px) {
+  .form-containers {
+    flex-direction: column;
+  }
+
+  .form {
+    width: 100%;
+    margin-left: 50px;
+  }
+
 }

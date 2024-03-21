@@ -11,15 +11,17 @@
         <th>Item</th>
         <th>Quantity</th>
         <th>Category</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% list.items.forEach(function(i) { %>
         <tr>
-          <td><form action="/items/<%= i._id %>?_method=DELETE" method="POST" id="remove"><button type="submit">X</button></form></td>
+          <td><input type="checkbox" class="check"></td>
           <td><%= i.itemName %></td>
           <td><%= i.quantity %></td>
           <td><%= i.category %></td>
+          <td><form action="/items/<%= i._id %>?_method=DELETE" method="POST" id="remove"><button type="submit">X</button></form></td>
         </tr>
       <% }); %>
     </tbody>
