@@ -8,7 +8,7 @@ module.exports = {
 async function create(req, res) {
   const list = await List.findById(req.params.id);
     req.body.completed = !!req.body.completed;
-    //We can push (or unshift) subdocs into Mongoose arrays
+
     req.body.listID = req.params.id
     list.items.push(req.body);
     try {
@@ -17,7 +17,7 @@ async function create(req, res) {
     } catch (err) {
       console.log(err);
     }
-    // Step 5:  Respond to the Request (redirect if data has been changed)
+    
     res.redirect(`/lists/${list._id}`);
   }
 
@@ -26,7 +26,7 @@ async function create(req, res) {
         const list = await List.findOne({'items._id': req.params.id});
         list.items.remove(req.params.id)
         await list.save()
-        res.redirect(`/lists/${list._id}`); // Redirect to the list of lists or any appropriate page
+        res.redirect(`/lists/${list._id}`);
     } catch (err) {
         console.error(err);
         res.status(500).send("Internal Server Error:");

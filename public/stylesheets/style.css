@@ -130,6 +130,7 @@ button[type="submit"]:hover {
 .form {
   display: inline-block;
   margin-left: 250px;
+  
 }
 
 input[type="submit"] {
