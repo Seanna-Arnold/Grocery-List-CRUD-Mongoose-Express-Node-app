@@ -8,6 +8,12 @@ In my project, I'm diving into the world of web development by crafting a CRUD (
 
 # Screenshots
 
+<img src="public/images/Screen Recording 2024-03-21 at 2.55.03 PM.mov">
+<img src="public/images/Screenshot 2024-03-21 at 2.50.10 PM.png">
+<img src="public/images/Screenshot 2024-03-21 at 2.53.20 PM.png">
+<img src="public/images/Screenshot 2024-03-21 at 4.57.43 PM.png">
+<img src="public/images/Screenshot 2024-03-21 at 11.15.30 AM.png">
+
 
 # Technologies Used
 
