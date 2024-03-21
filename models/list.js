@@ -49,10 +49,6 @@ const shoppingListSchema = new mongoose.Schema({
         enum: ['Harris Teeter', 'Walmart', 'Target', 'Trader Joe\'s', 'Aldi', 'Lidl', 'World Market', 'Patel Brothers', 'other'],
         default: 'Lidl'
     },
-    completed: {
-        type: Boolean,
-        default: false
-    },
     
     items: [itemSchema]
     }, );

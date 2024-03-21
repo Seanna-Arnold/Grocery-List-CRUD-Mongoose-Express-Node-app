@@ -1,28 +1,28 @@
 <%- include('../partials/header') %>
 
-<h2>Shopping List 🗒️</h2>
+<h2>Shopping List ✏️ 🗒️</h2>
 <table  class="listTable">
   <thead>
     <tr id="tableHead">
+      <th></th>
+      <th></th>
       <th>List Names</th>
       <th>Complete By</th>
       <th>Shop At</th>
-      <th>Completed</th>
-      <th></th>
-      <th></th>
+      <% if (user) { %>
+      <% } %>
     </tr>
   </thead>
   <tbody>
 
     <% lists.forEach(function(l) { %>
       <tr>
+        <td><a href="/lists/<%= l._id %>"> view list 👀</a></td>
+        <td><form action="/lists/<%= l._id %>?_method=DELETE" method="POST" id="remove-list"><button type="submit">X</button></form></td>
         <td><%= l.listName %></td>
         <td><%= new Date(l.dueDate).toLocaleDateString('en-US') %></td>
         <td><%= l.location %></td>
-        <td><%= l.completed ? 'Yes' : 'Nope' %></td>
         <% if (user) { %>
-        <td><a href="/lists/<%= l._id %>">view list</a></td>
-        <td><form action="/lists/<%= l._id %>?_method=DELETE" method="POST"><button type="submit">X</button></form></td>
         <% } %>
       </tr>
     <% }) %>

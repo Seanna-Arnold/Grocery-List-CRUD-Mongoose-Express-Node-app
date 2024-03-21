@@ -1,45 +1,25 @@
 <%- include('../partials/header') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>List Title:</th>
-      <th>Due By:</th>
-      <th>Shop At:</th>
-      <th>Done:</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><%= list.listName %></td>
-        <td><%= new Date(list.dueDate).toLocaleDateString('en-US') %></td>
-        <td><%= list.location %></td>
-        <td><%= list.completed ? 'Yes' : 'Nope' %></td>
-      </tr>
-
-  </tbody>
-</table>
+<h2><td><%= list.listName %></td></h2>
+<p>Go shopping by <strong><%= new Date(list.dueDate).toLocaleDateString('en-US') %></strong> and shop at <strong><%= list.location %></strong>.</p>
 
 <% if (list.items.length) { %>
   <table>
     <thead>
       <tr>
+        <th></th>
         <th>Item</th>
         <th>Quantity</th>
         <th>Category</th>
-        <th>Completed</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
       <% list.items.forEach(function(i) { %>
         <tr>
+          <td><form action="/items/<%= i._id %>?_method=DELETE" method="POST" id="remove"><button type="submit">X</button></form></td>
           <td><%= i.itemName %></td>
           <td><%= i.quantity %></td>
           <td><%= i.category %></td>
-          <td><%= i.completed ? 'Yes' : 'Nope' %></td>
-          <td><form action="/items/<%= i._id %>?_method=DELETE" method="POST"><button type="submit">X</button></form></td>
         </tr>
       <% }); %>
     </tbody>
@@ -52,7 +32,7 @@
 <div class="container">
 <section class="form-containers">
   <form action="/lists/<%= list._id %>/?_method=PUT" method="POST" id="form1" class="form">
-    <h2>Update List</h2>
+    <h3>Update List Info</h3>
     <label>List:
       <input type="text" name="listName" value="<%= list.listName %>">
     </label><br>
@@ -71,18 +51,15 @@
       <option value="Patel Brothers" <%= list.location === 'Patel Brothers' ? 'selected' : '' %>>Patel Brothers</option>
       <option value="other" <%= list.location === 'other' ? 'selected' : '' %>>Other</option>
     </select><br>
-    <label>Completed:
-      <input type="checkbox" name="completed">
-    </label><br>
-    <button type="submit">UPDATE List</button>
+    <button type="submit">Update List Info</button>
   </form>
 
 <br>
 
 <form id="add-item-form" method="POST" action="/lists/<%= list._id %>/items" id="form2" class="form">
-  <h2>Items</h2>
+  <h3>Add Items</h3>
   <label>List Items:</label>
-  <input type='text' name="itemName"></input>
+  <input type='text' name="itemName">
   <label>Quantity:</label>
   <input type="number" name="quantity">
   <label>Category:</label>
@@ -92,9 +69,6 @@
     <option value="Clothing 🧦">Clothing 🧦</option>
     <option value="other">other</option>
   </select>
-  <label>Completed:
-    <input type="checkbox" name="completed">
-  </label>
   <input type="submit" value="Add Item">
 </form>
 </section>

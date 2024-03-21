@@ -55,17 +55,18 @@ table {
 th, td {
   padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #320B0F;
 }
 
 th {
-  background-color: white;
+  background-color: #F3D9A5;
   color: #320B0F;
+  
 }
 
 
 tbody tr:nth-child(even) {
-  background-color: #320B0F;
+  background-color: white;
   color: #320B0F;
 }
 
@@ -82,6 +83,7 @@ label {
 
 input[type="text"],
 input[type="date"],
+input[type="number"],
 select {
   width: 100%;
   padding: 8px;
@@ -92,10 +94,6 @@ select {
   box-sizing: border-box;
 }
 
-input[type="checkbox"] {
-  margin-top: 8px;
-  margin-bottom: 12px;
-}
 
 button[type="submit"] {
   background-color: #F3D9A5;
@@ -133,4 +131,23 @@ input[type="submit"] {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+}
+
+#remove {
+  margin-left: 30px;
+  margin-right: -315px;
+}
+
+#remove-list {
+  margin-left: 30px;
+  margin-right: -297px;
+}
+
+h2 {
+  margin-top: 50px;
+  text-align: center;
+}
+
+p {
+  text-align: center;
 }
