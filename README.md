@@ -1,7 +1,7 @@
 # Cart Companion - shopping-list-CRUD-app
 
 ### Try the Grocery App:
-
+https://cart-companion-2b0412cf78ef.herokuapp.com/
 
 In my project, I'm diving into the world of web development by crafting a CRUD (Create, Read, Update, Delete) application using Mongoose, Express, and Node.js, dedicated to simplifying shopping list management. With Mongoose, I'm seamlessly integrating MongoDB into my application, ensuring efficient data handling. Through this trio combination, I'm building a user-friendly interface where users can effortlessly add, view, edit, and remove items from their shopping lists.
 
