@@ -16,10 +16,7 @@ const itemSchema = new mongoose.Schema({
         type: Number, 
         default: 1 
     },
-    completed: { 
-        type: Boolean, 
-        default: false 
-    }, 
+
     category: {
         type: String,
         enum: ['Home & Living 🏠', 'Food 🍔', 'Clothing 🧦', 'other'],
