@@ -38,9 +38,7 @@ async function create(req, res) {
   try {
     const list = await List.create(req.body);
     res.redirect(`/lists/${list._id}`);
-    // res.redirect(`/lists/new`);
   } catch (err) {
-    // Typically some sort of validation error
     console.log(err);
     res.render('lists/new', { errorMsg: err.message });
   }
